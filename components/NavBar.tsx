@@ -67,6 +67,11 @@ const NavBar = () => {
       ],
     },
     {
+      id: "projects",
+      label: "PROJECTS",
+      href: "/projects",
+    },
+    {
       id: "news-media",
       label: "NEWS/MEDIA",
       href: "/",
@@ -255,40 +260,6 @@ const NavBar = () => {
 
             {/* Right Side - Language Selector and Search */}
             <div className="flex items-center gap-3">
-              {/* Language Selector */}
-              <button
-                className="hidden md:flex items-center justify-center w-8 h-8 rounded hover:bg-gray-100 transition-colors"
-                aria-label="Select language"
-              >
-                <HiOutlineGlobeAlt className="w-5 h-5 text-gray-700" />
-              </button>
-
-              {/* Search Bar */}
-              <form onSubmit={handleSearch} className="flex items-center gap-2">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onFocus={() => setIsSearchFocused(true)}
-                    onBlur={() => setIsSearchFocused(false)}
-                    className={`w-48 md:w-28 h-9 px-3 pr-10 border rounded-full text-sm transition-all ${
-                      isSearchFocused
-                        ? "border-[#006400] ring-1 ring-[#006400]"
-                        : "border-gray-300"
-                    } focus:outline-none`}
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 bg-[#006400] rounded-full flex items-center justify-center hover:bg-[#004d00] transition-colors"
-                    aria-label="Search"
-                  >
-                    <FaSearch className="w-3.5 h-3.5 text-white" />
-                  </button>
-                </div>
-              </form>
-
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

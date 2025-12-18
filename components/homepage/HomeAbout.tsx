@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+
 import { BsQuestionCircle } from "react-icons/bs";
 import { LuCircleArrowRight } from "react-icons/lu";
 import { TbPhoneCall } from "react-icons/tb";
@@ -9,7 +9,7 @@ import { TiMessages } from "react-icons/ti";
 
 const HomeAbout = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <section className="mx-auto my-15 sm:my-20 lg:my-36  bg-white shadow-lg overflow-hidden py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-20">
         {/* Left Column - About Content */}
         <div className="space-y-4 sm:space-y-6">

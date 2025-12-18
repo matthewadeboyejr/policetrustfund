@@ -42,7 +42,7 @@ const HomeSteps = () => {
   ];
 
   return (
-    <section className="bg-white shadow-lg overflow-hidden py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <section className="mx-auto my-15 sm:my-20 lg:my-36  bg-white shadow-lg overflow-hidden py-10 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12">
         {/* Section Header */}
         <div className="flex flex-row gap-4 items-center">

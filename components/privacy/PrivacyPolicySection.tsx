@@ -556,7 +556,7 @@ const PrivacyPolicySection = () => {
                 </button>
 
                 {/* Section Header - Desktop */}
-                <div className="hidden lg:flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-[#006400] to-[#008000]">
+                <div className="hidden lg:flex items-center gap-4 px-6 py-4 bg-linear-to-r from-[#006400] to-[#008000]">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center text-white">
                     {section.icon}
                   </div>

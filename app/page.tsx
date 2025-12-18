@@ -8,7 +8,7 @@ import StatsSection from "@/components/homepage/StatsSection";
 
 export default function Home() {
   return (
-    <div className="bg-white w-full min-h-screen">
+    <div className="bg-white w-full min-h-screen scroll-smooth ">
       <HeroSection />
       <HomeAbout />
       <HomeNews />

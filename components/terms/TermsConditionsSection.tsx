@@ -258,16 +258,10 @@ const TermsConditionsSection = () => {
           </p>
           <div className="bg-gray-50 rounded-lg p-6 space-y-3">
             <div>
-              <h4
-                className="font-bold text-gray-900 mb-2"
-                style={{ fontFamily: "var(--font-merriweather), serif" }}
-              >
+              <h4 className="font-bold text-gray-900 mb-2">
                 Nigeria Police Trust Fund
               </h4>
-              <p
-                className="text-gray-700"
-                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-              >
+              <p className="text-gray-700">
                 No. 32 Agadez Crescent, Wuse II, FCT-Abuja, Nigeria
               </p>
             </div>
@@ -276,16 +270,13 @@ const TermsConditionsSection = () => {
               <a
                 href="mailto:info@nptf.gov.ng"
                 className="hover:text-[#006400] hover:underline"
-                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
               >
                 info@nptf.gov.ng
               </a>
             </div>
             <div className="flex items-center gap-2 text-gray-700">
               <FaPhone className="w-4 h-4 text-[#006400]" />
-              <span style={{ fontFamily: "var(--font-work-sans), sans-serif" }}>
-                +234 (8147692468) | +234 (9061268054)
-              </span>
+              <span>+234 (8147692468) | +234 (9061268054)</span>
             </div>
             <div className="flex items-center gap-2 text-gray-700">
               <FaGlobe className="w-4 h-4 text-[#006400]" />
@@ -294,7 +285,6 @@ const TermsConditionsSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#006400] hover:underline"
-                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
               >
                 https://nptf.gov.ng/
               </a>
@@ -313,17 +303,11 @@ const TermsConditionsSection = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-[#006400] rounded-full mb-6">
             <FaFileContract className="w-8 h-8 text-white" />
           </div>
-          <h1
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
-            style={{ fontFamily: "var(--font-merriweather), serif" }}
-          >
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Terms & Conditions
           </h1>
           <div className="w-12 sm:w-16 h-1 bg-[#006400] rounded-full mx-auto mb-4"></div>
-          <p
-            className="text-sm sm:text-base text-gray-600 mb-2"
-            style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-          >
+          <p className="text-sm sm:text-base text-gray-600 mb-2">
             Effective Date:{" "}
             <span className="font-semibold">1st June, 2024</span>
           </p>
@@ -346,10 +330,7 @@ const TermsConditionsSection = () => {
           <div className="hidden lg:block lg:col-span-1">
             <div className="sticky top-24">
               <div className="bg-white rounded-xl shadow-md p-6">
-                <h3
-                  className="text-lg font-bold text-gray-900 mb-4"
-                  style={{ fontFamily: "var(--font-merriweather), serif" }}
-                >
+                <h3 className="text-lg font-bold text-gray-900 mb-4">
                   Table of Contents
                 </h3>
                 <nav className="space-y-2">
@@ -362,9 +343,6 @@ const TermsConditionsSection = () => {
                           ? "bg-[#006400] text-white"
                           : "text-gray-700 hover:bg-gray-100"
                       }`}
-                      style={{
-                        fontFamily: "var(--font-work-sans), sans-serif",
-                      }}
                     >
                       <span className="text-sm font-semibold">
                         {section.number}.
@@ -397,12 +375,7 @@ const TermsConditionsSection = () => {
                       {section.icon}
                     </div>
                     <div className="text-left">
-                      <h3
-                        className="text-lg font-bold text-gray-900"
-                        style={{
-                          fontFamily: "var(--font-merriweather), serif",
-                        }}
-                      >
+                      <h3 className="text-lg font-bold text-gray-900">
                         {section.number}. {section.title}
                       </h3>
                     </div>
@@ -415,14 +388,11 @@ const TermsConditionsSection = () => {
                 </button>
 
                 {/* Section Header - Desktop */}
-                <div className="hidden lg:flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-[#006400] to-[#008000]">
+                <div className="hidden lg:flex items-center gap-4 px-6 py-4 bg-linear-to-r from-[#006400] to-[#008000]">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center text-white">
                     {section.icon}
                   </div>
-                  <h3
-                    className="text-xl font-bold text-white"
-                    style={{ fontFamily: "var(--font-merriweather), serif" }}
-                  >
+                  <h3 className="text-xl font-bold text-white">
                     {section.number}. {section.title}
                   </h3>
                 </div>

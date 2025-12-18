@@ -37,7 +37,7 @@ const HomeNews = () => {
   ];
 
   return (
-    <section className="bg-green-800 shadow-lg overflow-hidden py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 sm:mx-4 lg:mx-8 rounded-l-none sm:rounded-l-full my-8 sm:my-10 lg:my-12">
+    <section className="mx-auto my-15 sm:my-20 lg:my-36  bg-green-800 shadow-lg overflow-hidden py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 sm:mx-4 lg:mx-8 rounded-l-none sm:rounded-md ">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 lg:mb-10">
