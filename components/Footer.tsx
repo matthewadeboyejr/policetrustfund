@@ -23,10 +23,7 @@ const Footer = () => {
   };
 
   return (
-    <footer
-      className="w-full bg-[#0B1120] text-slate-300 relative overflow-hidden"
-      style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-    >
+    <footer className="w-full bg-[#0B1120] text-slate-300 relative overflow-hidden">
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
@@ -76,24 +73,23 @@ const Footer = () => {
             >
               Explore
             </h3>
-            <ul
-              className="space-y-4 text-sm"
-              style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-            >
+            <ul className="space-y-4 text-sm">
               {[
-                "About Us",
-                "Service List",
-                "Meet The Team",
-                "Recent News",
-                "Contact",
+                { label: "About Us", href: "/about/who-we-are" },
+                { label: "Service List", href: "/what-we-do/services" },
+                { label: "Meet The Team", href: "/about/management-team" },
+                { label: "Recent News", href: "/news" },
+                { label: "Contact", href: "/contact" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <Link
-                    href="#"
+                    href={item.href}
                     className="hover:text-blue-400 transition-colors"
-                    style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
+                    style={{
+                      fontFamily: "var(--font-work-sans), sans-serif",
+                    }}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -108,22 +104,42 @@ const Footer = () => {
             >
               Our Services
             </h3>
-            <ul
-              className="space-y-4 text-sm"
-              style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-            >
+            <ul className="space-y-4 text-sm">
               {[
-                "Training And Development",
-                "Procurement Of Equipment",
-                "Infrastructure Development",
+                {
+                  label: "Training And Development",
+                  href: "/what-we-do/training",
+                },
+                {
+                  label: "Procurement Of Equipment",
+                  href: "/what-we-do/procurement",
+                },
+                {
+                  label: "Infrastructure Development",
+                  href: "/what-we-do/infrastructure",
+                },
+                {
+                  label: "Welfare and Healthcare",
+                  href: "/what-we-do/welfare",
+                },
+                {
+                  label: "Research and Development",
+                  href: "/what-we-do/research",
+                },
+                {
+                  label: "Logistic and operational support",
+                  href: "/what-we-do/logistic",
+                },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <Link
-                    href="#"
+                    href={item.href}
                     className="hover:text-blue-400 transition-colors"
-                    style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
+                    style={{
+                      fontFamily: "var(--font-work-sans), sans-serif",
+                    }}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -145,7 +161,6 @@ const Footer = () => {
                   type="email"
                   placeholder="Enter email"
                   className="w-full bg-slate-800/50 border border-slate-700 rounded p-4 pr-12 text-sm focus:outline-none focus:border-blue-500 text-white placeholder:text-slate-500 transition-all"
-                  style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
                 />
                 <button className="absolute right-3 top-1/2 -translate-y-1/2 text-blue-500 hover:text-blue-400 transition-colors">
                   <FaPaperPlane size={18} />
@@ -155,19 +170,13 @@ const Footer = () => {
 
             {/* Contact Details */}
             <div className="space-y-4 border-t border-slate-800 pt-6">
-              <div
-                className="flex items-start gap-3 text-sm text-slate-400"
-                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-              >
+              <div className="flex items-start gap-3 text-sm text-slate-400">
                 <FaMapMarkerAlt className="mt-1 shrink-0 text-blue-500" />
                 <p style={{ fontFamily: "var(--font-work-sans), sans-serif" }}>
                   38, Agadez Crescent, Wuse II, FCT-Abuja, Nigeria
                 </p>
               </div>
-              <div
-                className="flex items-center gap-3 text-sm text-slate-400"
-                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-              >
+              <div className="flex items-center gap-3 text-sm text-slate-400">
                 <FaEnvelope className="shrink-0 text-blue-500" />
                 <a
                   href="mailto:info@nptf.gov.ng"
@@ -177,10 +186,7 @@ const Footer = () => {
                   info@nptf.gov.ng
                 </a>
               </div>
-              <div
-                className="flex items-center gap-3 text-sm text-slate-400"
-                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-              >
+              <div className="flex items-center gap-3 text-sm text-slate-400">
                 <FaPhoneAlt className="shrink-0 text-blue-500" />
                 <span
                   style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
@@ -195,27 +201,22 @@ const Footer = () => {
 
       {/* Bottom Yellow Bar */}
       <div className="w-full bg-yellow-300  text-slate-900 py-4 px-6 relative">
-        <div
-          className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium"
-          style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-        >
-          <p style={{ fontFamily: "var(--font-work-sans), sans-serif" }}>
-            © Copyright 2025 Nigeria Police Trust Fund.
-          </p>
-          <div
-            className="flex items-center gap-6"
-            style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-          >
-            <span style={{ fontFamily: "var(--font-work-sans), sans-serif" }}>
-              Visits: 2743
-            </span>
-            {/* Mobile Back to top */}
-            <button
-              onClick={scrollToTop}
-              className="lg:hidden flex items-center gap-2 hover:opacity-75"
-            >
-              TOP <FaArrowUp />
-            </button>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium mb-4">
+            <p style={{ fontFamily: "var(--font-work-sans), sans-serif" }}>
+              © Copyright 2025 Nigeria Police Trust Fund.
+            </p>
+            <div className="flex items-center gap-6">
+              <span></span>
+              {/* Mobile Back to top */}
+              <button
+                onClick={scrollToTop}
+                className="lg:hidden flex items-center gap-2 hover:opacity-75"
+                style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
+              >
+                TOP <FaArrowUp />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -245,10 +246,7 @@ const Footer = () => {
           style={{ writingMode: "vertical-rl" }}
         >
           <FaArrowUp className="rotate-0 mb-2" />
-          <span
-            className="text-xs font-bold tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-work-sans), sans-serif" }}
-          >
+          <span className="text-xs font-bold tracking-widest uppercase">
             Go Top
           </span>
         </button>

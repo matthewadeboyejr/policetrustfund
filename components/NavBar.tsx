@@ -20,6 +20,7 @@ interface SubMenuItem {
 }
 
 interface NavLink {
+  id?: string;
   label: string;
   href: string;
   isActive?: boolean;
@@ -33,26 +34,60 @@ const NavBar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const navLinks: NavLink[] = [
-    { label: "HOME", href: "/", isActive: true },
+    { id: "home", label: "HOME", href: "/", isActive: true },
     {
+      id: "about",
       label: "ABOUT",
-      href: "/about",
+      href: "/",
       submenu: [
-        { label: "Leadership", href: "/about/leadership" },
-        { label: "Mandate", href: "/about/mandate" },
+        { label: "Who we are", href: "/about/who-we-are" },
+        { label: "Board of Trustees", href: "/about/board-of-trustees" },
+        { label: "Our Management Team", href: "/about/management-team" },
+        { label: "Our History", href: "/about/history" },
       ],
     },
     {
-      label: "REGULATIONS",
-      href: "/regulations",
+      id: "what-we-do",
+      label: "WHAT WE DO",
+      href: "/",
       submenu: [
-        { label: "Leadership", href: "/about/leadership" },
-        { label: "Mandate", href: "/about/mandate" },
+        { label: "Service List", href: "/what-we-do/services" },
+        { label: "Training And Development", href: "/what-we-do/training" },
+        { label: "Procerement of Equipment", href: "/what-we-do/procurement" },
+        {
+          label: "Infrastructural Development",
+          href: "/what-we-do/infrastructure",
+        },
+        { label: "Welfare and Healthcare", href: "/what-we-do/welfare" },
+        { label: "Research and Development", href: "/what-we-do/research" },
+        {
+          label: "Logistic and operational support",
+          href: "/what-we-do/logistic",
+        },
       ],
     },
-    { label: "NEWS/MEDIA", href: "/news-media" },
-    { label: "CONTACT", href: "/contact" },
-    { label: "RESOLVE TRADE PROBLEM", href: "/resolve-trade-problem" },
+    {
+      id: "news-media",
+      label: "NEWS/MEDIA",
+      href: "/",
+      submenu: [
+        { label: "News", href: "/news" },
+        { label: "Downloads", href: "/downloads" },
+        { label: "Gallery", href: "/gallery" },
+      ],
+    },
+    {
+      id: "more",
+      label: "MORE",
+      href: "/",
+      submenu: [
+        { label: "Testimonials", href: "/testimonials" },
+        { label: "FAQs", href: "/faqs" },
+        { label: "Privacy Policy", href: "/privacy-policy" },
+        { label: "Terms of Service", href: "/terms-of-service" },
+      ],
+    },
+    { id: "contact", label: "CONTACT", href: "/contact" },
   ];
 
   const handleMouseEnter = (label: string) => {
@@ -72,27 +107,75 @@ const NavBar = () => {
   return (
     <header className="w-full">
       {/* Top Utility Bar */}
-      <div className="bg-[#006400] text-white py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-sm">
-          {/* Left Side - Latest News Button */}
-          <div className="flex items-center gap-4">
-            <button className="bg-[#004d00] hover:bg-[#003d00] px-4 py-1.5 rounded transition-colors font-medium">
-              Latest news
-            </button>
-            <span className="hidden md:inline text-xs">
-              COMMUNIQUE OF THE PRIVATE AND
-            </span>
+      <div className="bg-[#006400] text-white py-2 px-2 sm:px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Mobile Layout */}
+          <div className="flex md:hidden flex-col gap-2">
+            {/* Top Row - Button and Contact */}
+            <div className="flex items-center justify-between gap-2 text-xs">
+              <button className="bg-[#004d00] hover:bg-[#003d00] px-2 py-1 rounded transition-colors font-medium shrink-0 text-[10px]">
+                Latest news
+              </button>
+              <div className="flex items-center gap-2 shrink-0">
+                <FaPhone className="w-3 h-3" />
+                <span className="text-[10px]">+2349060006537</span>
+              </div>
+            </div>
+            {/* Bottom Row - Marquee */}
+            <div className="overflow-hidden w-full">
+              <div className="flex animate-scroll">
+                <span className="text-[10px] whitespace-nowrap mr-4">
+                  COMMUNIQUE OF THE PRIVATE AND PUBLIC SECTORS STAKEHOLDERS
+                  MEETING ON THE NIGERIA POLICE TRUST FUND
+                </span>
+                <span
+                  className="text-[10px] whitespace-nowrap mr-4"
+                  aria-hidden="true"
+                >
+                  COMMUNIQUE OF THE PRIVATE AND PUBLIC SECTORS STAKEHOLDERS
+                  MEETING ON THE NIGERIA POLICE TRUST FUND
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* Right Side - Contact Information */}
-          <div className="flex items-center gap-4 text-xs">
-            <div className="flex items-center gap-2">
-              <FaPhone className="w-3.5 h-3.5" />
-              <span>+2349060006537 | +2349060006536</span>
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between text-sm">
+            {/* Left Side - Latest News Button */}
+            <div className="flex items-center gap-4 flex-1 min-w-0">
+              <button className="bg-[#004d00] hover:bg-[#003d00] px-4 py-1.5 rounded transition-colors font-medium shrink-0">
+                Latest news
+              </button>
+              <div className="overflow-hidden flex-1 min-w-0">
+                <div className="flex animate-scroll">
+                  <span className="text-xs whitespace-nowrap mr-8">
+                    COMMUNIQUE OF THE PRIVATE AND PUBLIC SECTORS STAKEHOLDERS
+                    MEETING ON THE NIGERIA POLICE TRUST FUND
+                  </span>
+                  <span
+                    className="text-xs whitespace-nowrap mr-8"
+                    aria-hidden="true"
+                  >
+                    COMMUNIQUE OF THE PRIVATE AND PUBLIC SECTORS STAKEHOLDERS
+                    MEETING ON THE NIGERIA POLICE TRUST FUND
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <FaEnvelope className="w-3.5 h-3.5" />
-              <span>info@nptf.gov.ng</span>
+
+            {/* Right Side - Contact Information */}
+            <div className="flex items-center gap-4 text-xs shrink-0">
+              <div className="flex items-center gap-2">
+                <FaPhone className="w-3.5 h-3.5" />
+                <span className="hidden lg:inline">
+                  +2349060006537 | +2349060006536
+                </span>
+                <span className="lg:hidden">+2349060006537</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaEnvelope className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">info@nptf.gov.ng</span>
+              </div>
             </div>
           </div>
         </div>
@@ -123,7 +206,7 @@ const NavBar = () => {
               <ul className="flex items-center gap-1 relative">
                 {navLinks.map((link) => (
                   <li
-                    key={link.href}
+                    key={link.id || link.label}
                     className="relative"
                     onMouseEnter={() =>
                       link.submenu && handleMouseEnter(link.label)
@@ -255,7 +338,7 @@ const NavBar = () => {
                 <nav className="flex-1 overflow-y-auto py-4">
                   <ul className="flex flex-col">
                     {navLinks.map((link) => (
-                      <li key={link.href}>
+                      <li key={link.id || link.label}>
                         <Link
                           href={link.href}
                           onClick={() => setIsMobileMenuOpen(false)}
