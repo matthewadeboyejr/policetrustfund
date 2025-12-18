@@ -51,8 +51,8 @@ const NavBar = () => {
       label: "WHAT WE DO",
       href: "/",
       submenu: [
-        { label: "Service List", href: "/what-we-do/services" },
-        { label: "Training And Development", href: "/what-we-do/training" },
+        { label: "Services", href: "/what-we-do/services" },
+        /*  { label: "Training And Development", href: "/what-we-do/training" },
         { label: "Procerement of Equipment", href: "/what-we-do/procurement" },
         {
           label: "Infrastructural Development",
@@ -63,7 +63,7 @@ const NavBar = () => {
         {
           label: "Logistic and operational support",
           href: "/what-we-do/logistic",
-        },
+        }, */
       ],
     },
     {
@@ -84,7 +84,7 @@ const NavBar = () => {
         { label: "Testimonials", href: "/testimonials" },
         { label: "FAQs", href: "/faqs" },
         { label: "Privacy Policy", href: "/privacy-policy" },
-        { label: "Terms of Service", href: "/terms-of-service" },
+        { label: "Terms of Service", href: "/terms-conditions" },
       ],
     },
     { id: "contact", label: "CONTACT", href: "/contact" },
