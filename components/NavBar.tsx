@@ -32,6 +32,9 @@ const NavBar = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
+    null
+  );
 
   const navLinks: NavLink[] = [
     { id: "home", label: "HOME", href: "/", isActive: true },
@@ -286,15 +289,22 @@ const NavBar = () => {
 
             {/* Sidebar */}
             <div
-              className={`fixed top-0 left-0 h-full w-80 bg-gray-800 z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
+              className={`fixed top-0 left-0 h-full w-80 bg-green-800 z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${
                 isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
               }`}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col h-full">
                 {/* Header with Close Button */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-700">
                   <span className="nav-link text-white text-lg font-bold">
-                    Home
+                    <Image
+                      src="/logo-dark.png"
+                      alt="Nigerian Coat of Arms"
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
                   </span>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -310,21 +320,67 @@ const NavBar = () => {
                   <ul className="flex flex-col">
                     {navLinks.map((link) => (
                       <li key={link.id || link.label}>
-                        <Link
-                          href={link.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className={`nav-link flex items-center justify-between px-4 py-3 text-white hover:bg-gray-700 transition-colors ${
-                            link.isActive ? "bg-gray-700" : ""
-                          }`}
-                        >
-                          <span>{link.label}</span>
-                          <FaChevronRight className="w-4 h-4 text-gray-400" />
-                        </Link>
+                        {link.submenu ? (
+                          <>
+                            <button
+                              onClick={() =>
+                                setOpenMobileSubmenu(
+                                  openMobileSubmenu === link.id
+                                    ? null
+                                    : link.id || link.label
+                                )
+                              }
+                              className={`nav-link flex items-center justify-between w-full px-4 py-3 text-white hover:bg-gray-700 transition-colors ${
+                                link.isActive ? "bg-gray-700" : ""
+                              }`}
+                            >
+                              <span>{link.label}</span>
+                              <FaChevronRight
+                                className={`w-4 h-4 text-gray-400 transition-transform ${
+                                  openMobileSubmenu === link.id ||
+                                  openMobileSubmenu === link.label
+                                    ? "rotate-90"
+                                    : ""
+                                }`}
+                              />
+                            </button>
+                            {openMobileSubmenu === link.id ||
+                            openMobileSubmenu === link.label ? (
+                              <ul className="bg-gray-900/50">
+                                {link.submenu.map((subItem) => (
+                                  <li key={subItem.href}>
+                                    <Link
+                                      href={subItem.href}
+                                      onClick={() => {
+                                        setIsMobileMenuOpen(false);
+                                        setOpenMobileSubmenu(null);
+                                      }}
+                                      className="nav-link flex items-center px-8 py-2.5 text-white/90 hover:bg-gray-700 hover:text-white transition-colors text-sm"
+                                    >
+                                      {subItem.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
+                          </>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={`nav-link flex items-center justify-between px-4 py-3 text-white hover:bg-gray-700 transition-colors ${
+                              link.isActive ? "bg-gray-700" : ""
+                            }`}
+                          >
+                            <span>{link.label}</span>
+                            <FaChevronRight className="w-4 h-4 text-gray-400" />
+                          </Link>
+                        )}
                       </li>
                     ))}
 
                     {/* Language Selector */}
-                    <li>
+                    {/*  <li>
                       <button
                         className="nav-link flex items-center justify-between w-full px-4 py-3 text-white hover:bg-gray-700 transition-colors"
                         aria-label="Select language"
@@ -335,12 +391,12 @@ const NavBar = () => {
                         </div>
                         <FaChevronRight className="w-4 h-4 text-gray-400" />
                       </button>
-                    </li>
+                    </li> */}
                   </ul>
                 </nav>
 
                 {/* Search Bar at Bottom */}
-                <div className="p-4 border-t border-gray-700">
+                {/*   <div className="p-4 border-t border-gray-700">
                   <form onSubmit={handleSearch} className="relative">
                     <input
                       type="text"
@@ -359,7 +415,7 @@ const NavBar = () => {
                       <FaSearch className="w-4 h-4 text-white" />
                     </button>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
           </>
